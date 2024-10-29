@@ -1,0 +1,41 @@
+// Fonts
+// @import url("https://fonts.bunny.net/css?family=Nunito");
+
+// Variables
+// @import "variables";
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// DataTables
+@import "datatables.net-bs5/css/dataTables.bootstrap5.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.css";
+
+@import "login";
+@import "admin";
+
+
+.item-body {
+    gap: 40px;
+    overflow: hidden;
+}
+
+.bottomContent {
+    height: max-content;
+}
+
+.item2,
+.item3,
+.item4 {
+    width: 1140px;
+}
+
+.itemBtn {
+    width: max-content;
+}
+
+.items {
+    width: max-content;
+    margin-left: 40px;
+}
