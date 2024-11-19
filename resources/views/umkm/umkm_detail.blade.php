@@ -99,7 +99,8 @@
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-6-custom">
-                            <img src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkm->original_photoname) }}"
+                          
+                            <img   src="{{ Storage::url('files/documentUser/profileUMKM/' . $umkm->original_photoname) }}"
                                 class="img-fluid rounded-start fixed-image" alt="UMKM Image">
                         </div>
 

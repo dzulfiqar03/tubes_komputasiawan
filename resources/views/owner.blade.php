@@ -103,7 +103,9 @@
 
                                                         <div class="card d-flex" style="width: 18rem; height:344px">
                                                             <img class="card-img-top"
-                                                                src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                            src="{{ Storage::url('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+
+                                                          
                                                                 width="1366px" height="200px" alt="image">
                                                             <div class="card-body ">
                                                                 <h5 class="card-title text-decoration-none txtMain">

@@ -60,7 +60,7 @@
                                 <div class="col-md-6 mb-3 w-100">
                                     <div class="input-group">
                                         <div class="icon">
-                                            <img src="{{ Vite::asset('resources/images/icon/keyIcon.png') }}"
+                                            <img src="{{ Vite::asset('resources/images/Icon/keyIcon.png') }}"
                                                 alt="image" width="25">
 
                                         </div>

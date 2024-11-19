@@ -135,8 +135,7 @@
                                                         href="{{ route('detail', ['id' => $umkms->id]) }}">
 
                                                         <div class="card" style="width: 18rem; height:344px">
-                                                            <img class="card-img-top"
-                                                                src="{{ Storage::url('public/storage/admin/product/' . $umkms->original_photoname) }}""
+                                                            <img class="card-img-top" src="{{ Storage::url('files/documentUser/profileUMKM/' . $umkms->original_photoname) }}"
                                                                 width="1366px" height="200px" alt="image">
                                                             <div class="card-body ">
                                                                 <h5 class="card-title text-decoration-none txtMain">
@@ -215,8 +214,7 @@
                                                         href="{{ route('detail', ['id' => $umkms->id]) }}">
 
                                                         <div class="card" style="width: 18rem; height:344px">
-                                                            <img class="card-img-top"
-                                                                src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                            <img class="card-img-top" src="{{ Storage::url('files/documentUser/profileUMKM/' . $umkms->original_photoname) }}"
                                                                 width="1366px" height="200px" alt="image">
                                                             <div class="card-body ">
                                                                 <h5 class="card-title text-decoration-none txtMain">
@@ -260,7 +258,7 @@
                                     owner page</a>
                             </div>
                             <div class="col-lg-6">
-                                <img class="img-fluid" src="{{ '//resources/images/adImage.jpg' }}"
+                                <img class="img-fluid" src="{{ Vite::asset('resources/images/adImage.jpg') }}"
                                     alt="image">
                             </div>
                         </div>

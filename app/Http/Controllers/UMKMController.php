@@ -87,7 +87,8 @@ class UMKMController extends Controller
             $encrypted_photoname = $photo->hashName();
 
             // Store File
-            $photo->store('public/files/documentUser/profileUMKM');
+            $photo->storeAs('public/files/documentUser/profileUMKM', $original_photoname);
+
             $photo->move('resources/images/umkm/profileUMKM', $original_photoname);
 
         }
