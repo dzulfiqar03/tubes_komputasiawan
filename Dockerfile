@@ -1,24 +1,35 @@
-# Gunakan image PHP 8 resmi sebagai basis
-FROM php:8.3.12-fpm-alpine
+FROM php:8.2-fpm
 
-# Set working directory
-WORKDIR /var/www/html
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    curl \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd zip pdo pdo_mysql exif \
+    && docker-php-ext-enable exif
 
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+WORKDIR /var/www
 
-# Copy composer.json dan composer.lock
-COPY composer.json composer.lock ./
-
-
-# Copy seluruh isi proyek ke dalam container
 COPY . .
 
-# Set permission
-RUN chown -R www-data:www-data .
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Expose port untuk aplikasi
-EXPOSE 9800
+RUN composer install --no-scripts --no-autoloader
 
-# Command untuk menjalankan aplikasi
-CMD ["php", "-S", "0.0.0.0:9800", "-t", "public"]
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs
+
+RUN npm install
+
+RUN npm run build
+
+EXPOSE 9000
+
+CMD ["php-fpm"]

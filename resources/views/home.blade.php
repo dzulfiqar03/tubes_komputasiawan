@@ -260,7 +260,7 @@
                                     owner page</a>
                             </div>
                             <div class="col-lg-6">
-                                <img class="img-fluid" src="{{ Vite::asset('//resources/images/adImage.jpg') }}"
+                                <img class="img-fluid" src="{{ '//resources/images/adImage.jpg' }}"
                                     alt="image">
                             </div>
                         </div>

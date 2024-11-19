@@ -43,7 +43,7 @@
                     <li class="nav-item mb-5">
                         @if (Auth::check())
                             <img class="rounded-circle"
-                                src="{{ Vite::asset('public/resources/images/members/' . Auth::user()->original_filename) }}"
+                                src="{{ Storage::url('public/resources/images/members/' . Auth::user()->original_filename) }}"
                                 width="200px" height="200px" alt="image">
                         @else
                             <img class="mx-auto mb-5" src="{{ Vite::asset('/resources/images/profile.png') }}"
