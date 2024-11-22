@@ -97,31 +97,30 @@
                                                 <p>Kosong</p>
                                             @endif
                                             @foreach ($umkm as $umkms)
-                                                <div class="col items mb-5">
-                                                    <a class="text-decoration-none"
-                                                        href="{{ route('detail', ['id' => $umkms->id]) }}">
+                                                    <div class="col items mb-5 style="flex:0"">
+                                                        <a class="text-decoration-none"
+                                                            href="{{ route('detail', ['id' => $umkms->id]) }}">
 
-                                                        <div class="card d-flex" style="width: 18rem; height:344px">
-                                                            <img class="card-img-top"
-                                                            src="{{ Storage::url('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                            <div class="card d-flex" style="width: 18rem; height:344px">
+                                                                <img class="card-img-top"
+                                                                    src="{{ Storage::url('files/documentUser/profileUMKM/' . $umkms->original_photoname) }}"
+                                                                    width="1366px" height="200px" alt="image">
+                                                                <div class="card-body ">
+                                                                    <h5 class="card-title text-decoration-none txtMain">
+                                                                        {{ $umkms->umkm }}</h5>
+                                                                    <p class="card-text mb-2 txtMain"
+                                                                        style="height:48px">
+                                                                        {{ $umkms->description }}
+                                                                    </p>
+                                                                    <a href=""
+                                                                        class="btn mainColor text-light fw-bold">Go
+                                                                        somewhere</a>
 
-                                                          
-                                                                width="1366px" height="200px" alt="image">
-                                                            <div class="card-body ">
-                                                                <h5 class="card-title text-decoration-none txtMain">
-                                                                    {{ $umkms->umkm }}</h5>
-                                                                <p class="card-text mb-2 txtMain" style="height:48px">
-                                                                    {{ $umkms->description }}
-                                                                </p>
-                                                                <a href=""
-                                                                    class="btn mainColor text-light fw-bold">Go
-                                                                    somewhere</a>
-
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </a>
+                                                        </a>
 
-                                                </div>
+                                                    </div>
                                             @endforeach
                                         </div>
                                     </div>

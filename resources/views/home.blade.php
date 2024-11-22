@@ -27,7 +27,7 @@
 <body>
 
     <div class="text-center">
-        <div class="d-flex">
+        <div class="d-flex duration-500">
 
             <div class="leftContent p-2 gap-50 vh-100" id="leftContent">
 
@@ -126,10 +126,47 @@
                             <div class="sub-body1">
                                 <div class="text-center item2">
                                     <div class="row product-list2 w-100">
+                                        @if ($culinary->isEmpty())
+                                        <p>Kosong</p>
+                                    @endif
+
+                                        @foreach ($culinary->take(3) as $umkms)
+                                                <div class="col items" style="flex:0">
+                                                    <a class="text-decoration-none"
+                                                        href="{{ route('detail', ['id' => $umkms->id]) }}">
+
+                                                        <div class="card" style="width: 18rem; height:344px">
+                                                            <img class="card-img-top" src="{{ Storage::url('files/documentUser/profileUMKM/' . $umkms->original_photoname) }}"
+                                                                width="1366px" height="200px" alt="image">
+                                                            <div class="card-body ">
+                                                                <h5 class="card-title text-decoration-none txtMain">
+                                                                    {{ $umkms->umkm }}</h5>
+                                                                <p class="card-text mb-2 txtMain" style="height:48px">
+                                                                    {{ $umkms->description }}
+                                                                </p>
+                                                                <a href=""
+                                                                    class="btn mainColor text-light fw-bold">Go
+                                                                    somewhere</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                            </div>
 
 
-                                        @foreach ($culinary as $umkms)
-                                            @if ($umkmCount <= 6)
+                            <div class="sub-body2">
+                                <div class="text-center item3">
+                                    <div class="row product-list3">
+                                        @if ($fashion->isEmpty())
+                                            <p>Kosong</p>
+                                        @endif
+                                        @foreach ($fashion->take(6) as $umkms)
                                                 <div class="col items">
                                                     <a class="text-decoration-none"
                                                         href="{{ route('detail', ['id' => $umkms->id]) }}">
@@ -152,46 +189,6 @@
                                                     </a>
 
                                                 </div>
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <div class="sub-body2">
-                                <div class="text-center item3">
-                                    <div class="row product-list3">
-                                        @if ($fashion->isEmpty())
-                                            <p>Kosong</p>
-                                        @endif
-                                        @foreach ($fashion as $umkms)
-                                            @if ($umkmCount <= 6)
-                                                <div class="col items">
-                                                    <a class="text-decoration-none"
-                                                        href="{{ route('detail', ['id' => $umkms->id]) }}">
-
-                                                        <div class="card" style="width: 18rem; height:344px">
-                                                            <img class="card-img-top"
-                                                                src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
-                                                                width="1366px" height="200px" alt="image">
-                                                            <div class="card-body ">
-                                                                <h5 class="card-title text-decoration-none txtMain">
-                                                                    {{ $umkms->umkm }}</h5>
-                                                                <p class="card-text mb-2 txtMain" style="height:48px">
-                                                                    {{ $umkms->description }}
-                                                                </p>
-                                                                <a href=""
-                                                                    class="btn mainColor text-light fw-bold">Go
-                                                                    somewhere</a>
-
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                </div>
-                                            @endif
                                         @endforeach
                                     </div>
                                 </div>
@@ -207,8 +204,7 @@
                                             <p>Kosong</p>
                                         @endif
 
-                                        @foreach ($service as $umkms)
-                                            @if ($umkmCount <= 6)
+                                        @foreach ($service->take(6) as $umkms)
                                                 <div class="col items">
                                                     <a class="text-decoration-none"
                                                         href="{{ route('detail', ['id' => $umkms->id]) }}">
@@ -231,7 +227,6 @@
                                                     </a>
 
                                                 </div>
-                                            @endif
                                         @endforeach
                                     </div>
                                 </div>

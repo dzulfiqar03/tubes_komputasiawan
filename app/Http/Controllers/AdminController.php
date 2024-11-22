@@ -93,14 +93,12 @@ class AdminController extends Controller
 
              // Store File
              $file->store('public/files/documentUser/suratIzin');
-             $file->move('resources/images/umkm/documentUMKM', $original_filesname);
 
              $original_photoname = $photo->getClientOriginalName();
              $encrypted_photoname = $photo->hashName();
 
              // Store File
              $photo->store('public/files/documentUser/profileUMKM');
-             $photo->move('resources/images/umkm/profileUMKM', $original_photoname);
 
          }
 

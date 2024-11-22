@@ -81,7 +81,6 @@ class UMKMController extends Controller
 
             // Store File
             $file->store('public/files/documentUser/suratIzin');
-            $file->move('resources/images/umkm/documentUMKM', $original_filesname);
 
             $original_photoname = $photo->getClientOriginalName();
             $encrypted_photoname = $photo->hashName();
@@ -89,7 +88,6 @@ class UMKMController extends Controller
             // Store File
             $photo->storeAs('public/files/documentUser/profileUMKM', $original_photoname);
 
-            $photo->move('resources/images/umkm/profileUMKM', $original_photoname);
 
         }
 
